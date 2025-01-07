@@ -1,0 +1,78 @@
+{
+  "2024": {
+    "single": [
+      { "rate": 10, "floor": 0, "ceiling": 11600 },
+      { "rate": 12, "floor": 11601, "ceiling": 47150 },
+      { "rate": 22, "floor": 47151, "ceiling": 100525 },
+      { "rate": 24, "floor": 100526, "ceiling": 191950 },
+      { "rate": 32, "floor": 191951, "ceiling": 243725 },
+      { "rate": 35, "floor": 243726, "ceiling": 609350 },
+      { "rate": 37, "floor": 609351, "ceiling": null }
+    ],
+    "married_filing_jointly": [
+      { "rate": 10, "floor": 0, "ceiling": 23200 },
+      { "rate": 12, "floor": 23201, "ceiling": 94300 },
+      { "rate": 22, "floor": 94301, "ceiling": 201050 },
+      { "rate": 24, "floor": 201051, "ceiling": 383900 },
+      { "rate": 32, "floor": 383901, "ceiling": 487450 },
+      { "rate": 35, "floor": 487451, "ceiling": 731200 },
+      { "rate": 37, "floor": 731201, "ceiling": null }
+    ],
+    "married_filing_separately": [
+      { "rate": 10, "floor": 0, "ceiling": 11600 },
+      { "rate": 12, "floor": 11601, "ceiling": 47150 },
+      { "rate": 22, "floor": 47151, "ceiling": 100525 },
+      { "rate": 24, "floor": 100526, "ceiling": 191950 },
+      { "rate": 32, "floor": 191951, "ceiling": 243725 },
+      { "rate": 35, "floor": 243726, "ceiling": 365600 },
+      { "rate": 37, "floor": 365601, "ceiling": null }
+    ],
+    "head_of_household": [
+      { "rate": 10, "floor": 0, "ceiling": 16550 },
+      { "rate": 12, "floor": 16551, "ceiling": 63100 },
+      { "rate": 22, "floor": 63101, "ceiling": 100500 },
+      { "rate": 24, "floor": 100501, "ceiling": 191950 },
+      { "rate": 32, "floor": 191951, "ceiling": 243700 },
+      { "rate": 35, "floor": 243701, "ceiling": 609350 },
+      { "rate": 37, "floor": 609351, "ceiling": null }
+    ]
+  },
+  "2025": {
+    "single": [
+      { "rate": 10, "floor": 0, "ceiling": 11925 },
+      { "rate": 12, "floor": 11926, "ceiling": 48475 },
+      { "rate": 22, "floor": 48476, "ceiling": 103350 },
+      { "rate": 24, "floor": 103351, "ceiling": 197300 },
+      { "rate": 32, "floor": 197301, "ceiling": 250525 },
+      { "rate": 35, "floor": 250526, "ceiling": 626350 },
+      { "rate": 37, "floor": 626351, "ceiling": null }
+    ],
+    "married_filing_jointly": [
+      { "rate": 10, "floor": 0, "ceiling": 23850 },
+      { "rate": 12, "floor": 23851, "ceiling": 96950 },
+      { "rate": 22, "floor": 96951, "ceiling": 206700 },
+      { "rate": 24, "floor": 206701, "ceiling": 394600 },
+      { "rate": 32, "floor": 394601, "ceiling": 501050 },
+      { "rate": 35, "floor": 501051, "ceiling": 751600 },
+      { "rate": 37, "floor": 751601, "ceiling": null }
+    ],
+    "married_filing_separately": [
+      { "rate": 10, "floor": 0, "ceiling": 11925 },
+      { "rate": 12, "floor": 11926, "ceiling": 48475 },
+      { "rate": 22, "floor": 48476, "ceiling": 103350 },
+      { "rate": 24, "floor": 103351, "ceiling": 197300 },
+      { "rate": 32, "floor": 197301, "ceiling": 250525 },
+      { "rate": 35, "floor": 250526, "ceiling": 375800 },
+      { "rate": 37, "floor": 375801, "ceiling": null }
+    ],
+    "head_of_household": [
+      { "rate": 10, "floor": 0, "ceiling": 17000 },
+      { "rate": 12, "floor": 17001, "ceiling": 64850 },
+      { "rate": 22, "floor": 64851, "ceiling": 103350 },
+      { "rate": 24, "floor": 103351, "ceiling": 197300 },
+      { "rate": 32, "floor": 197301, "ceiling": 250500 },
+      { "rate": 35, "floor": 250501, "ceiling": 626350 },
+      { "rate": 37, "floor": 626351, "ceiling": null }
+    ]
+  }
+}
