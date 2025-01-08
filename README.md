@@ -1,4 +1,4 @@
-# UsIncomeTax
+# USIncomeTax
 
 Calculate US Federal Income Tax
 
