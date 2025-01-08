@@ -4,7 +4,7 @@ require_relative "lib/us_income_tax/version"
 
 Gem::Specification.new do |spec|
   spec.name = "us_income_tax"
-  spec.version = UsIncomeTax::VERSION
+  spec.version = USIncomeTax::VERSION
   spec.authors = ["Jason Kim"]
   spec.email = ["iamjsonkim@gmail.com"]
 
