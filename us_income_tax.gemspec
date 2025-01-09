@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["iamjsonkim@gmail.com"]
 
   spec.summary = "Calculate US Federal Income Tax"
-  spec.description = "Calculate US federal income tax. The gem can calculate how much tax should be paid for different tax brackets"  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.description = "Calculate US federal income tax. The gem can calculate how much tax should be paid for different tax brackets"
   spec.homepage = "https://github.com/serv/us_income_tax"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
