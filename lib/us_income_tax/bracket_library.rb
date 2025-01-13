@@ -16,7 +16,8 @@ module USIncomeTax
     def self.serialize_types(year, types)
       types_hash = {}
       types.map do |type, brackets|
-        types_hash[type] = serialize_brackets(year, type, brackets)
+        temp_symbol = type.to_sym
+        types_hash[temp_symbol] = serialize_brackets(year, type, brackets)
       end
       types_hash
     end
