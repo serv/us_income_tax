@@ -1,6 +1,17 @@
 require "test_helper"
 
 class TestUSIncomeTaxBracketLibrary < Minitest::Test
+  def test_populate_content
+    loaded = ::USIncomeTax::BracketLoader.load
+    bracket_library = ::USIncomeTax::BracketLibrary.new(loaded)
+
+    assert bracket_library.content["2024"][:single][0].year == 2024
+    assert bracket_library.content["2024"][:single][0].type == :single
+    assert bracket_library.content["2024"][:single][0].rate == 0.1
+    assert bracket_library.content["2024"][:single][0].floor_amount == 0
+    assert bracket_library.content["2024"][:single][0].ceiling_amount == 11_600
+  end
+
   def test_serialize_types
     year = "2025"
     types = {
