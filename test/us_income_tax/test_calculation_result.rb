@@ -46,4 +46,14 @@ class TestUSIncomeCalculationResult < Minitest::Test
 
     assert calculation_result.total_tax == expected_sum
   end
+
+  def test_calculate_net_income
+    calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single)
+    calculation_result.assign_income_to_tax_brackets
+    calculation_result.calculate_tax_brackets
+    calculation_result.calculate_total_tax
+    calculation_result.calculate_net_income
+
+    assert calculation_result.net_income == calculation_result.gross_income - calculation_result.total_tax
+  end
 end

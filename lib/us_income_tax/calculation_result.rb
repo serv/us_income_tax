@@ -53,7 +53,7 @@ module USIncomeTax
     end
 
     def calculate_net_income
-      # TODO
+      @net_income = @gross_income - @total_tax
     end
   end
 end
