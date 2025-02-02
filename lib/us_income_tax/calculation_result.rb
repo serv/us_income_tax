@@ -32,8 +32,14 @@ module USIncomeTax
       end
     end
 
+    # Must call assign_income_to_tax_brackets before usage
     def calculate_tax_brackets
-      # TODO
+      types_in_year = @brackets[@year.to_s]
+      brackets_in_type = types_in_year[@type.to_sym]
+
+      brackets_in_type.each do |bracket|
+        bracket.calculate_tax
+      end
     end
 
     def calculate_total_tax
