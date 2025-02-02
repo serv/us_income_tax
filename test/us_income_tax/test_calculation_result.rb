@@ -32,4 +32,18 @@ class TestUSIncomeCalculationResult < Minitest::Test
     assert top_bracket.tax_amount_intermediate == expected_top_bracket_tax
     assert top_bracket.tax_amount == expected_top_bracket_tax.round(2)
   end
+
+  def test_calculate_total_tax
+    calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single)
+    calculation_result.assign_income_to_tax_brackets
+    calculation_result.calculate_tax_brackets
+    calculation_result.calculate_total_tax
+
+    brackets = calculation_result.brackets[calculation_result.year.to_s][calculation_result.type]
+    expected_sum = brackets.reduce(0) do |result, element|
+      result + element.tax_amount
+    end
+
+    assert calculation_result.total_tax == expected_sum
+  end
 end
