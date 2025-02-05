@@ -16,7 +16,17 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+year = 2024 # Supports 2024 and 2025 only
+gross_income = 777777
+type = :single # Supports :single, :married_filing_jointly, :married_filing_separately, :head_of_household
+
+calculation_result = Calculator.calculate(year, gross_income, type)
+
+tax_brackets = calculation_result.brackets[calculation_result.year.to_s][calculation_result.type]
+total_tax = calculation_result.total_tax 
+net_income = calculation_result.net_income
+```
 
 ## Development
 
