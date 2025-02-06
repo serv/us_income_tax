@@ -27,8 +27,10 @@ Gem::Specification.new do |spec|
         f.start_with?(*%w[bin/ test/ spec/ features/ .git .github appveyor Gemfile])
     end
   end
+
   # If you want to explicitly list the JSON file:
   spec.files += ["data/federal_tax_bracket.json"]
+
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
