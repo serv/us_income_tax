@@ -2,7 +2,7 @@ module USIncomeTax
   class CalculationResult
     attr_accessor :year, :gross_income, :type, :brackets, :total_tax, :net_income
 
-    def initialize(year, gross_income, type)
+    def initialize(year, gross_income, type, options)
       @year = year
       @gross_income = gross_income
       @type = type
@@ -12,6 +12,7 @@ module USIncomeTax
       @brackets = BracketLibrary.new(loaded_static_brackets).content
       @total_tax = nil
       @net_income = nil
+      @options = CalculationResultOptions.new(options)
     end
 
     def calculate

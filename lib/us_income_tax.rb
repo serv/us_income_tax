@@ -10,6 +10,10 @@ require_relative "us_income_tax/calculator"
 # HSA
 require_relative "us_income_tax/hsa/max_contribution_data_loader"
 
+# DTO
+require_relative "us_income_tax/dto/calculation_result_options"
+require_relative "us_income_tax/dto/calculation_result_options_hsa"
+
 module USIncomeTax
   class Error < StandardError; end
   # Your code goes here...
