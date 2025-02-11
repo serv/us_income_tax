@@ -2,7 +2,7 @@ require "test_helper"
 
 class TestUSIncomeCalculator < Minitest::Test
   def test_calculate
-    calculation_result = ::USIncomeTax::Calculator.calculate(2024, 777_777, :single)
+    calculation_result = ::USIncomeTax::Calculator.calculate(2024, 777_777, :single, nil)
 
     bottom_bracket = calculation_result.brackets[calculation_result.year.to_s][calculation_result.type].first
     top_bracket = calculation_result.brackets[calculation_result.year.to_s][calculation_result.type].last

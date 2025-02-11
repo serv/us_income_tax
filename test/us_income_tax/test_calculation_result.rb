@@ -2,7 +2,7 @@ require "test_helper"
 
 class TestUSIncomeCalculationResult < Minitest::Test
   def test_assign_income_to_tax_brackets
-    calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single)
+    calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single, nil)
     calculation_result.assign_income_to_tax_brackets
 
     bottom_bracket = calculation_result.brackets[calculation_result.year.to_s][calculation_result.type].first
@@ -16,7 +16,7 @@ class TestUSIncomeCalculationResult < Minitest::Test
   end
 
   def test_calculate_tax_brackets
-    calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single)
+    calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single, nil)
     calculation_result.assign_income_to_tax_brackets
     calculation_result.calculate_tax_brackets
 
@@ -34,7 +34,7 @@ class TestUSIncomeCalculationResult < Minitest::Test
   end
 
   def test_calculate_total_tax
-    calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single)
+    calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single, nil)
     calculation_result.assign_income_to_tax_brackets
     calculation_result.calculate_tax_brackets
     calculation_result.calculate_total_tax
@@ -48,7 +48,7 @@ class TestUSIncomeCalculationResult < Minitest::Test
   end
 
   def test_calculate_net_income
-    calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single)
+    calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single, nil)
     calculation_result.assign_income_to_tax_brackets
     calculation_result.calculate_tax_brackets
     calculation_result.calculate_total_tax

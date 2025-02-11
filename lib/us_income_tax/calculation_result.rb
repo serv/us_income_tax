@@ -13,6 +13,9 @@ module USIncomeTax
       @brackets = BracketLibrary.new(loaded_static_brackets).content
       @total_tax = nil
       @net_income = nil
+
+      return if options.nil?
+
       @options = DTO::CalculationResultOptions.new(options)
     end
 
@@ -37,7 +40,7 @@ module USIncomeTax
 
     # Must call assign_income_to_tax_brackets before usage
     def calculate_taxable_income
-      return unless @options.hsa
+      return if @options.nil? || @options.hsa.nil?
 
       hsa_calculation_result = Hsa::TaxableIncomeCalculator.calculate(@year, @gross_income, @options.hsa)
       @taxable_income = hsa_calculation_result.taxable_income

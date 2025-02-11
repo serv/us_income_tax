@@ -1,28 +1,29 @@
-module UsIncomeTax
+module USIncomeTax
   module Hsa
     class CalculationResult
       attr_accessor :year, :gross_income, :taxable_income, :options, :max_contributions
 
-      def initialize(year, gross_income, options)
+      def initialize(year, gross_income, hsa_options)
         @year = year
         @gross_income = gross_income
         @taxable_income = 0
-        @options = options.hsa
+        @options = hsa_options
         @max_contributions = MaxContributionDataLoader.load
       end
 
+      # TODO: test
       def calculate
         validation_result = validate_inputs
         nil unless validation_result[:valid]
 
-        # TODO: after checking validity, need to calculate taxable income, gross_income - options.hsa.hsa_contribution_amount
+        @taxable_income = @gross_income - @options.hsa.hsa_contribution_amount
       end
 
       def validate_inputs
         year_contributions = @max_contributions[@year.to_s]
 
-        if @options.hsa.hsa_type == "self-only"
-          if @options.hsa.hsa_contribution_amount > year_contributions["self-only"]
+        if @options.hsa_type == "self-only"
+          if @options.hsa_contribution_amount > year_contributions["self-only"]
             {
               valid: false,
               message: "HSA contribution amount exceeds the maximum contribution amount for self-only HSA"
@@ -33,8 +34,8 @@ module UsIncomeTax
               message: nil
             }
           end
-        elsif @options.hsa.hsa_type == "family"
-          if @options.hsa.hsa_contribution_amount > year_contributions["family"]
+        elsif @options.hsa_type == "family"
+          if @options.hsa_contribution_amount > year_contributions["family"]
             {
               valid: false,
               message: "HSA contribution amount exceeds the maximum contribution amount for family HSA"
