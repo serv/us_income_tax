@@ -11,12 +11,11 @@ module USIncomeTax
         @max_contributions = MaxContributionDataLoader.load
       end
 
-      # TODO: test
       def calculate
         validation_result = validate_inputs
         nil unless validation_result[:valid]
 
-        @taxable_income = @gross_income - @options.hsa.hsa_contribution_amount
+        @taxable_income = @gross_income - @options.hsa_contribution_amount
       end
 
       def validate_inputs
