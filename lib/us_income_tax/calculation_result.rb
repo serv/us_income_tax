@@ -1,10 +1,11 @@
 module USIncomeTax
   class CalculationResult
-    attr_accessor :year, :gross_income, :type, :brackets, :total_tax, :net_income
+    attr_accessor :year, :gross_income, :taxable_income, :type, :brackets, :total_tax, :net_income, :options
 
-    def initialize(year, gross_income, type)
+    def initialize(year, gross_income, type, options)
       @year = year
       @gross_income = gross_income
+      @taxable_income = @gross_income # By default, taxable income is the same as the gross income
       @type = type
 
       loaded_static_brackets = ::USIncomeTax::BracketLoader.load
@@ -12,11 +13,16 @@ module USIncomeTax
       @brackets = BracketLibrary.new(loaded_static_brackets).content
       @total_tax = nil
       @net_income = nil
+
+      return if options.nil?
+
+      @options = DTO::CalculationResultOptions.new(options)
     end
 
     def calculate
       assign_income_to_tax_brackets
       calculate_tax_brackets
+      calculate_taxable_income
       calculate_total_tax
       calculate_net_income
     end
@@ -33,6 +39,14 @@ module USIncomeTax
     end
 
     # Must call assign_income_to_tax_brackets before usage
+    def calculate_taxable_income
+      return if @options.nil? || @options.hsa.nil?
+
+      hsa_calculation_result = Hsa::TaxableIncomeCalculator.calculate(@year, @gross_income, @options.hsa)
+      @taxable_income = hsa_calculation_result.taxable_income
+    end
+
+    # Must call calculate_taxable_income before usage
     def calculate_tax_brackets
       types_in_year = @brackets[@year.to_s]
       brackets_in_type = types_in_year[@type.to_sym]

@@ -7,6 +7,15 @@ require_relative "us_income_tax/bracket"
 require_relative "us_income_tax/calculation_result"
 require_relative "us_income_tax/calculator"
 
+# HSA
+require_relative "us_income_tax/hsa/max_contribution_data_loader"
+require_relative "us_income_tax/hsa/taxable_income_calculator"
+require_relative "us_income_tax/hsa/calculation_result"
+
+# DTO
+require_relative "us_income_tax/dto/calculation_result_options"
+require_relative "us_income_tax/dto/calculation_result_options_hsa"
+
 module USIncomeTax
   class Error < StandardError; end
   # Your code goes here...

@@ -1,0 +1,12 @@
+{
+  "2024": {
+    "self-only": 4150,
+    "family": 8300,
+    "additional-catch-up": 1000
+  },
+  "2025": {
+    "self-only": 4300,
+    "family": 8550,
+    "additional-catch-up": 1000
+  }
+}
