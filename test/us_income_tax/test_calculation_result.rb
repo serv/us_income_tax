@@ -15,9 +15,25 @@ class TestUSIncomeCalculationResult < Minitest::Test
     assert top_bracket.gross_amount == 777_777.to_f - (top_bracket.floor_amount - 1)
   end
 
+  def test_calculate_taxable_income
+    year = 2024
+    gross_income = 777_777
+    hsa_contribution_amount = 4000
+    hsa_type = "self-only"
+    options = { hsa: { year: year, hsa_contribution_amount: hsa_contribution_amount,
+                       hsa_type: hsa_type } }
+
+    calculation_result = ::USIncomeTax::CalculationResult.new(year, gross_income, :single, options)
+    calculation_result.assign_income_to_tax_brackets
+    calculation_result.calculate_taxable_income
+
+    assert calculation_result.taxable_income == gross_income - hsa_contribution_amount
+  end
+
   def test_calculate_tax_brackets
     calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single, nil)
     calculation_result.assign_income_to_tax_brackets
+    calculation_result.calculate_taxable_income
     calculation_result.calculate_tax_brackets
 
     bottom_bracket = calculation_result.brackets[calculation_result.year.to_s][calculation_result.type].first
@@ -36,6 +52,7 @@ class TestUSIncomeCalculationResult < Minitest::Test
   def test_calculate_total_tax
     calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single, nil)
     calculation_result.assign_income_to_tax_brackets
+    calculation_result.calculate_taxable_income
     calculation_result.calculate_tax_brackets
     calculation_result.calculate_total_tax
 
@@ -50,6 +67,7 @@ class TestUSIncomeCalculationResult < Minitest::Test
   def test_calculate_net_income
     calculation_result = ::USIncomeTax::CalculationResult.new(2024, 777_777, :single, nil)
     calculation_result.assign_income_to_tax_brackets
+    calculation_result.calculate_taxable_income
     calculation_result.calculate_tax_brackets
     calculation_result.calculate_total_tax
     calculation_result.calculate_net_income

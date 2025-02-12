@@ -7,7 +7,7 @@ module USIncomeTax
     def self.load
       json_file_path = File.expand_path(FILE_PATH, __dir__)
       file = File.read(json_file_path)
-      data_hash = JSON.parse(file)
+      JSON.parse(file)
     end
   end
 end
